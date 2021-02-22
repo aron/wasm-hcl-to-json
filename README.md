@@ -7,3 +7,5 @@ Build the Go binary via:
 Convert a Terraform HCL file into JSON via:
 
     node main.js input.tf
+
+The original wasm_exec.js file can be found at `$(go env GOROOT)/misc/wasm/wasm_exec.js` but unfortunately exposes globals :/
