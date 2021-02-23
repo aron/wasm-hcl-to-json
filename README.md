@@ -1,11 +1,20 @@
 # wasm-hcl-to-json
 
-Build the Go binary via:
+Build the package via:
 
-    GOOS=js GOARCH=wasm go build -o ./main.wasm
+  make build
+
+This will generate a hcltojson.wasm file and an index.js.
+
+Usage:
+
+    const load = require('hcltojson');
+    const hcltojson = await load();
+    const result = hcltojson(hclSource);
+    console.log(result);
 
 Convert a Terraform HCL file into JSON via:
 
-    node main.js input.tf
+    node index.js input.tf
 
-The original wasm_exec.js file can be found at `$(go env GOROOT)/misc/wasm/wasm_exec.js` but unfortunately exposes globals :/
+The original wasm_exec.js file can be found at `$(go env GOROOT)/misc/wasm/wasm_exec.js`
