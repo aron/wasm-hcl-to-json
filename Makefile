@@ -5,7 +5,10 @@ build: index.js
 index.js: template.js wasm_exec.tmp.js
 	sed -e '/REPLACE/ {' -e 'r wasm_exec.tmp.js' -e 'd' -e '}' $< > $@
 
-hcltojson.wasm: main.go
+hcltojson: cli.go
+	go build -o $@
+
+hcltojson.wasm: wasm.go
 	GOOS=js GOARCH=wasm go build -o $@
 
 wasm_exec.tmp.js:

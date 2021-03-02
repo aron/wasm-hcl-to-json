@@ -23,3 +23,15 @@ Convert a Terraform HCL file into JSON via:
     node index.js input.tf
 
 The original wasm_exec.js file can be found at `$(go env GOROOT)/misc/wasm/wasm_exec.js`
+
+## To build a CLI Tool
+
+    make hcl2json
+
+This will spit out a ~5mb go binary that can be used as follows:
+
+    <myterraform.tf hcl2json
+    > ... some json output ...
+
+This binary can be pulled down to 1.5mb via building with the flags
+`-ldflags="-s -w"` and then using the upx packer tool.

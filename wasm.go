@@ -1,10 +1,15 @@
+// +build js,wasm
+
 package main
+
+//go:generate cp $GOROOT/misc/wasm/wasm_exec.js .
 
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/tmccombs/hcl2json/convert"
 	"syscall/js"
+
+	"github.com/tmccombs/hcl2json/convert"
 )
 
 func main() {
